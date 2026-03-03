@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ِAbdelrahman Elsayed Khalifa | Penetration Testing</title>
+<link rel="icon" type="image/png" href="logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+body{
+  background: linear-gradient(180deg,#020617,#020617,#020617);
+  color:#e5e7eb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+.container{max-width:1000px}
+.section{margin-top:90px}
+h1,h3,h5{color:#f8fafc}
+.accent{color:#38bdf8}
+.meta{color:#94a3b8;font-size:14px}
+
+/* Scroll reveal */
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .75s ease,transform .75s ease;
+  will-change:opacity,transform
+}
+.reveal.show{opacity:1;transform:translateY(0)}
+.reveal.scale{transform:translateY(18px) scale(.98)}
+.reveal.scale.show{transform:translateY(0) scale(1)}
+
+/* HERO entrance */
+.hero-in{
+  opacity:0;
+  transform:translateY(22px);
+  animation:heroUp .9s ease forwards
+}
+.hero-in.d1{animation-delay:.15s}
+.hero-in.d2{animation-delay:.3s}
+.hero-in.d3{animation-delay:.45s}
+@keyframes heroUp{to{opacity:1;transform:translateY(0)}}
+
+/* Profile */
+.profile-img{
+  width:240px;
+  height:280px;
+  object-fit:cover;
+  border-radius:22px;
+  border:2px solid #1e293b;
+  box-shadow:0 18px 40px rgba(0,0,0,.35)
+}
+@media (max-width:576px){
+  .profile-img{width:210px;height:250px}
+}
+
+/* Social icons */
+.icon-links i{
+  font-size:22px;
+  margin-right:18px;
+  transition:.3s
+}
+.icon-links i:hover{
+  color:#38bdf8;
+  transform:translateY(-4px)
+}
+
+/* Cards / boxes */
+.summary-box{
+  background:#020617;
+  border:1px solid #1e293b;
+  border-radius:12px;
+  padding:28px
+}
+.card-dark{
+  background:#020617;
+  border:1px solid #1e293b;
+  border-radius:14px;
+  padding:18px;
+  transition:.35s;
+  height:100%
+}
+.card-dark:hover{
+  transform:translateY(-8px);
+  border-color:#38bdf8
+}
+
+/* Skills badges */
+.skill-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid #1e293b;
+  background:#020617;
+  color:#e5e7eb;
+  margin:6px 8px 0 0;
+  transition:.25s
+}
+.skill-badge:hover{
+  transform:translateY(-3px);
+  border-color:#38bdf8
+}
+
+/* ================= CERTIFICATES (CLEAN) ================= */
+.cert-card{
+  background:#020617;
+  border:1px solid #1e293b;
+  border-radius:12px;
+  height:100%;
+  transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.cert-card:hover{
+  transform:translateY(-8px) scale(1.03);
+  border-color:#38bdf8;
+  box-shadow:0 20px 45px rgba(56,189,248,.15);
+}
+.cert-thumb{
+  width:100%;
+  aspect-ratio:16/10;
+  border-radius:10px;
+  border:1px solid #1e293b;
+  background-color:#020617;
+  display:block;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform .35s ease;
+}
+.cert-card:hover .cert-thumb{
+  transform:scale(1.06);
+}
+.cert-thumb::after{
+  content:"Open Image";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  color:#e5e7eb;
+  background:rgba(2,6,23,.55);
+  opacity:0;
+  transition:opacity .25s ease;
+}
+.cert-card:hover .cert-thumb::after{
+  opacity:1;
+}
+
+/* Buttons */
+.btn-soft{
+  background:rgba(56,189,248,.12);
+  border:1px solid rgba(56,189,248,.35);
+  color:#e5e7eb;
+  border-radius:10px;
+  padding:10px 14px;
+  transition:.25s
+}
+.btn-soft:hover{
+  transform:translateY(-3px);
+  border-color:#38bdf8;
+  color:#fff
+}
+.btn-soft-outline{
+  background:transparent;
+  border:1px solid #1e293b;
+  color:#e5e7eb;
+  border-radius:10px;
+  padding:10px 14px;
+  transition:.25s
+}
+.btn-soft-outline:hover{
+  transform:translateY(-3px);
+  border-color:#38bdf8;
+  color:#fff
+}
+.btn-disabled{
+  opacity:.55;
+  pointer-events:none;
+}
+
+/* Institute badge */
+.inst-badge{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#020617;
+  border:1px solid #1e293b;
+  border-radius:14px;
+  padding:12px
+}
+.inst-logo{
+  width:46px;
+  height:46px;
+  object-fit:contain;
+  border-radius:10px;
+  border:1px solid #1e293b;
+  background:#0b1220;
+  padding:6px
+}
+.inst-text{line-height:1.2}
+.inst-text .t1{
+  font-weight:650;
+  color:#f8fafc;
+  font-size:14px
+}
+.inst-text .t2{
+  color:#94a3b8;
+  font-size:13px
+}
+
+/* Footer */
+footer{
+  margin:120px 0 40px;
+  text-align:center;
+  color:#94a3b8
+}
+a{text-decoration:none}
+</style>
+
+</head>
+
+<body>
+<div class="container">
+
+<!-- HERO -->
+<section class="section">
+  <div class="row align-items-center g-4">
+    <div class="col-lg-3 text-center text-lg-start">
+      <img src="profile.jpeg" class="profile-img hero-in" alt="Profile Photo">
+    </div>
+
+    <div class="col-lg-6 text-center text-lg-start">
+      <h1 class="hero-in d1 mb-1">Abdelrahman Khalifa</h1>
+      <p class="hero-in d2 mb-2">CyberSecurity Engineer | Specialist Penetration Testing </p>
+
+      <div class="meta hero-in d2">
+        <!-- <span class="me-2">abdo.Khalifa7788@gmail.com</span> · -->
+        <span class="mx-2">+201284099841</span>
+      </div>
+
+      <div class="icon-links mt-3 hero-in d3">
+        <a href="https://www.linkedin.com/in/abdelrahman-elsayed-khalifa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/Abdelrahman-Khalifa77" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:abdo.Khalifa7788@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-lg-3 text-center text-lg-end">
+      <!-- Institute badge -->
+      <div class="inst-badge mb-3 hero-in d3">
+        <img src="MET.jpeg" class="inst-logo" alt="Higher Misr Institute Logo">
+        <div class="inst-text text-start">
+          <div class="t1">
+            <a href="https://www.facebook.com/METMISR"
+               target="_blank"
+               rel="noopener noreferrer"
+               title="Visit Higher Misr Institute Website"
+               style="color:inherit">
+              Higher Misr Institute
+            </a>
+          </div>
+          <div class="t2">Computer Science</div>
+        </div>
+      </div>
+
+      <!-- CV buttons -->
+      <div class="d-grid gap-2 hero-in d3">
+        <a class="btn btn-soft" href="cv.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-regular fa-eye me-2"></i> View CV
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="section reveal scale">
+  <h3 class="accent">Summary</h3>
+  <div class="summary-box mt-4">
+    <p class="mb-0">
+      Junior Cybersecurity and Penetration Testing enthusiast with a strong self-taught background in web application security and ethical hacking.
+      Hands-on experience performing security assessments on lab-based and intentionally vulnerable applications.
+      Skilled in vulnerability discovery, exploitation, and clear technical reporting.
+    </p>
+  </div>
+</section>
+
+<!-- TECHNICAL SKILLS -->
+<section class="section reveal">
+  <h3 class="accent">Technical Skills</h3>
+
+  <div class="mt-3">
+    <h6 class="text-white-50 mb-2">Programming</h6>
+    <span class="skill-badge"><i class="fa-solid fa-code accent"></i> C++</span>
+    <span class="skill-badge"><i class="fa-solid fa-code accent"></i> Python</span>
+    <span class="skill-badge"><i class="fa-solid fa-code accent"></i> C#</span>
+    <span class="skill-badge"><i class="fa-solid fa-database accent"></i> SQL</span>
+    <span class="skill-badge"><i class="fa-solid fa-code accent"></i> HTML</span>
+    <span class="skill-badge"><i class="fa-solid fa-code accent"></i> CSS</span>
+    <span class="skill-badge"><i class="fa-brands fa-bootstrap accent"></i> Bootstrap</span>
+    <span class="skill-badge"><i class="fa-brands fa-js accent"></i> JavaScript</span>
+    <span class="skill-badge"><i class="fa-brands fa-php accent"></i> PHP</span>
+    <span class="skill-badge"><i class="fa-solid fa-mobile-screen accent"></i> Dart</span>
+    <span class="skill-badge"><i class="fa-solid fa-mobile-screen accent"></i> Flutter</span>
+  </div>
+
+  <div class="mt-4">
+    <h6 class="text-white-50 mb-2">Cybersecurity / Pen Testing</h6>
+    <span class="skill-badge"><i class="fa-solid fa-network-wired accent"></i> Network Security</span>
+    <span class="skill-badge"><i class="fa-solid fa-bug accent"></i> SQL Injection</span>
+    <span class="skill-badge"><i class="fa-solid fa-bug accent"></i> XSS</span>
+    <span class="skill-badge"><i class="fa-solid fa-bug accent"></i> XXE</span>
+    <span class="skill-badge"><i class="fa-solid fa-key accent"></i> JWT</span>
+    <span class="skill-badge"><i class="fa-solid fa-terminal accent"></i> OS Command Injection</span>
+    <span class="skill-badge"><i class="fa-solid fa-clipboard-check accent"></i> Vulnerability Assessment</span>
+    <span class="skill-badge"><i class="fa-solid fa-diagram-project accent"></i> Threat Modeling</span>
+    <span class="skill-badge"><i class="fa-solid fa-triangle-exclamation accent"></i> Risk Assessment</span>
+    <span class="skill-badge"><i class="fa-solid fa-globe accent"></i> Web Application Security</span>
+    <span class="skill-badge"><i class="fa-solid fa-shield-halved accent"></i> Secure Coding Standards</span>
+  </div>
+</section>
+
+<!-- PROJECTS / DOMAINS -->
+<section class="section reveal">
+  <h3 class="accent">Projects</h3>
+
+  
+</section>
+
+<!-- EDUCATION -->
+<section class="section reveal">
+  <h3 class="accent">Education</h3>
+  <div class="card-dark mt-3">
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+      <h5 class="mb-1">Bachelor of Computer Science</h5>
+      <!-- <span class="meta">3rd Year (Current)</span> -->
+    </div>
+    <p class="meta mb-0">Higher Misr Institute for Computer Science, Mansoura, Egypt</p>
+  </div>
+</section>
+
+<!-- COURSES & CERTIFICATIONS (LIST) -->
+<section class="section reveal">
+  <h3 class="accent">Courses &amp; Certifications</h3>
+  <div class="summary-box mt-4">
+    <ul class="mb-0">
+      <li>Vulnerability Assessment &amp; Penetration Testing – DEPI</li>
+      <li>Ethical Hacker – Cisco Networking Academy</li>
+      <li>Cybersecurity Essentials – Cisco Networking Academy</li>
+      <li>Cisco Cybersecurity – Digital Training Center – Mansoura University</li>
+      <li>Cybersecurity Course – ITC Center, Mansoura</li>
+      <li>Cybersecurity Program – Sprints (Microsoft Camp)</li>
+      <li>Red Teaming / Penetration Tester – Eng. Hossam Shady – Udemy</li>
+      <li>Software Testing – Orange Egypt</li>
+      <li>Google Career Skills Program (Soft Digital Skills)</li>      
+    </ul>
+  </div>
+</section>
+
+<!-- CERTIFICATES (IMAGES + BUTTONS) -->
+
+
+<!-- TOOLS -->
+<section class="section" id="tools">
+  <h3 class="accent reveal">Tools</h3>
+
+  <div class="mt-4 reveal">
+    <span class="skill-badge"><i class="fa-solid fa-bug"></i> Burp Suite</span>
+    <span class="skill-badge"><i class="fa-solid fa-network-wired"></i> Nmap</span>
+    <span class="skill-badge"><i class="fa-solid fa-shield-halved"></i> Nessus</span>
+    <span class="skill-badge"><i class="fa-solid fa-eye"></i> Wireshark</span>
+    <span class="skill-badge"><i class="fa-solid fa-terminal"></i> Metasploit</span>
+    <span class="skill-badge"><i class="fa-solid fa-database"></i> sqlmap</span>
+    <span class="skill-badge"><i class="fa-solid fa-key"></i> Hashcat</span>
+    <span class="skill-badge"><i class="fa-solid fa-lock"></i> John the Ripper</span>
+    <span class="skill-badge"><i class="fa-brands fa-linux"></i> Linux</span>
+    <span class="skill-badge"><i class="fa-solid fa-code-branch"></i> Git &amp; GitHub</span>
+  </div>
+</section>
+
+<!-- SOFT SKILLS -->
+<section class="section" id="soft-skills">
+  <h3 class="accent reveal">Soft Skills</h3>
+
+  <div class="mt-4 reveal">
+    <span class="skill-badge">Problem Solving</span>
+    <span class="skill-badge">Critical Thinking</span>
+    <span class="skill-badge">Analytical Skills</span>
+    <span class="skill-badge">Attention to Detail</span>
+    <span class="skill-badge">Time Management</span>
+    <span class="skill-badge">Teamwork</span>
+    <span class="skill-badge">Communication</span>
+  </div>
+</section>
+
+<footer class="reveal">© 2026 abdelrahman-elsayed-khalifa · Cybersecurity &amp; Penetration Testing</footer>
+
+</div>
+
+<!-- Bootstrap JS (was broken before due to a long comment) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Scroll reveal -->
+<script>
+(function () {
+  const els = document.querySelectorAll(".reveal");
+  if (!els.length) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("show");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  els.forEach(el => io.observe(el));
+})();
+</script>
+
+<script>
+function forceDownload(e, fileUrl, fileName) {
+  e.preventDefault();
+  const link = document.createElement("a");
+  link.href = fileUrl;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+</script>
+
+</body>
+</html>
